@@ -47,7 +47,7 @@ logger = logging.getLogger(__name__)
 
 
 
-class FastGradientMethod(EvasionAttack):
+class FastGradientMethodBW(EvasionAttack):
     """
     This attack was originally implemented by Goodfellow et al. (2015) with the infinity norm (and is known as the "Fast
     Gradient Sign Method"). This implementation extends the attack to other norms, and is therefore called the Fast
@@ -82,7 +82,7 @@ class FastGradientMethod(EvasionAttack):
         tensor_board: Union[str, bool] = False,
     ) -> None:
         """
-        Create a :class:`.FastGradientMethod` instance.
+        Create a :class:`.FastGradientMethodBW` instance.
 
         :param estimator: A trained classifier.
         :param norm: The norm of the adversarial perturbation. Possible values: "inf", np.inf, 1 or 2.
@@ -109,7 +109,7 @@ class FastGradientMethod(EvasionAttack):
         self.batch_size = batch_size
         self.minimal = minimal
         self._project = True
-        FastGradientMethod._check_params(self)
+        FastGradientMethodBW._check_params(self)
 
         self._batch_id = 0
         self._i_max_iter = 0
